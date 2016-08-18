@@ -26,7 +26,8 @@ function theme_setup() {
 	* You can allow clients to create multiple menus by
   * adding additional menus to the array. */
 	register_nav_menus( array(
-		'primary' => 'Primary Navigation'
+		'primary' => 'Primary Navigation',
+		'social' => 'Social Navigation'
 	) );
 
 	/*
@@ -77,6 +78,10 @@ function hackeryou_scripts() {
     null, // version number
     true //load in footer
   );
+
+  add_filter( 'body_class', function( $classes ) {
+    return array_merge( $classes, array( 'clearfix' ) );
+} );
 
   wp_enqueue_script(
     'scripts', //handle
@@ -280,4 +285,14 @@ function get_post_parent($post) {
 	else {
 		return $post->ID;
 	}
+}
+
+// adds feature image
+
+function aella_featured_image_url($post) {
+	$image_id = get_post_thumbnail_id($post->id);
+	 // using a wp built in fuction
+	$image_url = wp_get_attachment_url($image_id);
+	// passing in the id to get attachment url
+	return $image_url;
 }

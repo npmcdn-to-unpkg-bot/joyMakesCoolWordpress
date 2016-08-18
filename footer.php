@@ -1,8 +1,8 @@
-<footer>
+<!-- <footer>
   <div class="container">
     <p>&copy; HackerYou <?php echo date('Y'); ?></p>
   </div>
-</footer>
+</footer> -->
 
 <script>
 // scripts.js, plugins.js and jquery are enqueued in functions.php

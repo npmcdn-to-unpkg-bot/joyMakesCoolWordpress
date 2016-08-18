@@ -19,6 +19,15 @@ Default Styling
 ====================================
 */
 
+// ===== VARIABLES ==== //
+
+$textBlack: #282828;
+$lineGrey: #cccccc;
+$textGrey: #757575;
+$hoverGold: #b3885e;
+
+// ==== GENERIC STUFF ==== //
+
 img {
 	max-width: 100%;
 }
@@ -26,21 +35,246 @@ img {
 body {
 	color: #333;
 }
-
+.main {
+	width: 75%;
+	float: right;
+}
 .container {
-	max-width: 1200px;
-	margin: 0 auto;
+	width: 100%;
 }
 
 .content {
-	float: left;
-	width: 65%;
-	margin-right: 5%;
+	width: 100%;
 }
 
 .full {
 	width: 100%;
 }
+
+// ==== HOME  ==== //
+
+.home header {
+	width: 50%;
+	float: left;
+	height: calc(100vh - 32px);
+}
+
+.home .mainHome {
+	width: 50%;
+	height: calc(100vh - 32px);
+	float: right;
+	background-size: cover;
+
+	.containerEvent {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		height: calc(100vh - 32px);
+	}
+}
+.home .eventBox{
+	display: flex;
+	width: 65%;
+	background: #fff;
+
+	.contentEvent {
+		width: 80px;
+		border-right: 2px solid #ccc;
+	}
+
+
+	.eventDetail {
+		margin-right: 0;
+		padding: 10px 5px;
+		padding-left: 30px;
+
+		p {
+			color: #ccc;
+			margin: 0;
+			font-family: $bodyFont;
+			font-style: italic;
+			font-size: 12px;
+		}
+
+		h2 {
+			color: $darkBlack;
+			font-family: $primaryFont;
+			margin: 0;
+			font-size: 30px;
+			font-weight: lighter;
+		}
+	}
+}
+// ==== OTHER HEADER ==== //
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 25%;
+	float: left;
+	background: #F5F5F5;
+	height: calc(100vh - 32px);
+	position: fixed;
+
+	img {
+	width: 100px;
+	display: block;
+	margin: 10vh auto;
+	}
+
+	.copyright {
+		width: 100%;
+		text-align: center;
+		margin: 2vh auto 0 auto;
+		font-size: 13px;
+		color: #ccc;
+		font-family: $bodyFont;
+	}
+}
+
+// ======== about-page.php ======= //
+
+.content {
+	padding: 18vh 0;
+
+	.intro {
+		margin: 10vh auto;
+		width: 66.66%;
+		color: $textGrey;
+		font-size: 13px;
+		font-family: $bodyFont;
+
+		h3{
+			font-weight: normal;		
+		}
+	}
+
+	h3 {
+		margin: 0;
+		text-align: center;
+
+		&.hardCode {
+			font-size: 16px;
+			font-style: italic;
+			font-family: $secondaryFont;
+		}
+	}
+
+	h2 {
+		font-size: 48px;
+		font-weight: lighter;
+		font-family: $primaryFont;
+		color: $darkBlack;
+		text-align: center;
+		position: relative;
+		text-transform: uppercase;
+		margin: 0;
+
+		&:after {
+			content: "";
+			position: absolute;
+			width: 30px;
+			height: 1px;
+			background: $lineGrey;
+			left: calc(50% - 15px);
+			bottom: 0;
+		}
+	}
+}
+
+// ====== home.php, BLOG PAGE ====== //
+
+.searchPosts{
+
+		form {
+		text-align: center;
+
+		input[type="submit"] {
+			display: none;
+		}
+	} 
+}
+
+.blog .posts:nth-child(odd) {
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+.blog .posts:nth-child(even) {
+	img {
+		width: 80%;
+		height: auto;
+		display:block;
+		margin: 0 auto;
+	}
+
+	p {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+.blog .posts {
+
+	.postsContent {
+		width: 80%;
+		margin: 0 auto;
+
+		h3 {
+			font-family: $primaryFont;
+			font-size: 48px;
+			font-weight: lighter;
+			text-align: center;
+			text-transform: uppercase;
+			color: $darkBlack;
+			letter-spacing: 2px;
+		}
+
+		p {
+			font-family: $bodyFont;
+			font-size: 13px;
+			color: $textGrey;
+
+			&:last-child {
+				text-align: center;
+				margin: 45px auto;
+			}
+
+		}
+
+		a.more-link {
+			color: $darkBlack;
+			text-transform: uppercase;
+			font-family: $primaryFont;
+			font-weight: lighter;
+			font-size: 16px;
+			display: block;
+			margin: 0 auto;
+			position: relative;
+			transition: 0.3s;
+
+			&:hover {
+				color: $hoverGold;
+			}
+
+			&:before {
+				content: "";
+				position: absolute;
+				width: 20px;
+				height: 2px;
+				background: $darkBlack;
+				top: -10px;
+				left: calc(50% - 10px);
+			}
+		}
+	}
+
+}
+
 
 
 
