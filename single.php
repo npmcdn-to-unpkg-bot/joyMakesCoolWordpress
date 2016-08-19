@@ -20,7 +20,6 @@
           </div>
           <div class="postsContent">
             <h1 class="entry-title"><?php the_title(); ?></h1>
-
             <div class="entry-content">
               <?php the_content(); ?>
               <?php wp_link_pages(array(
@@ -50,13 +49,14 @@
             <?php if( function_exists('dot_irecommendthis') ) dot_irecommendthis(); ?>
           </div>
         </div>
+        
+        <!-- <?php wp_list_comments('type=comment&callback=my_theme_comment'); ?> -->
 
         <?php comments_template( '', true ); ?>
 
       <?php endwhile; // end of the loop. ?>
 
     </div> <!-- /.content -->
-
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 

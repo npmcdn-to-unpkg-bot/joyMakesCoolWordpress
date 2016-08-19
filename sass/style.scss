@@ -349,6 +349,7 @@ header {
 h2.comments-title {
 	color: $darkBlack;
 	font-size: 30px;
+	margin: 40px 0;
 
 	span {
 		font-family: $secondaryFont;
@@ -361,10 +362,120 @@ h2.comments-title {
 	}
 }
 
+.comments-area {
+	width: 80%;
+	margin: 0 auto;
+}
 
+.comment-body {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 
+	.commentAvatar {
+		margin-left: 20px;
 
+		img {
+			display: inline-block;
+			width: 100%;
+		}
+	}	
+	.commentMain {
+		margin-left: 20px;
+		padding: 20px 0;
+		width: calc(100% - 100px);
+		border-top: 1px solid $lineGrey;
 
+		.commentText {
+			color: $textGrey;
+			font-size: 12px;
+			font-family: $bodyFont;
+			width: 100%;
+		}
+
+		.commentAuthor {
+			font-style: italic;
+			color: $textGrey;
+			font-family: $secondaryFont;
+			width: 100%;
+
+			cite {
+				text-transform: capitalize;
+				color:$darkBlack;
+			}
+		}
+		
+	}
+
+}
+div#div-comment-1 .commentMain {
+	border-top: none;
+}
+
+// ======== comment form ======== //
+
+#respond {
+	border-top: none;
+	width: calc(355 / 665 * 100%);
+	margin: 0 auto;
+
+	h3 {
+		font-size: 30px;
+		font-weight: lighter;
+		font-family: $primaryFont;
+		color: $darkBlack;
+		letter-spacing: 1px;
+		position: relative;
+		padding: 40px 0;
+
+		&:before {
+			content: "";
+			position: absolute;
+			width: 40px;
+			top: 0;
+			left: calc(50% - 20px);
+			height: 1px;
+			background: $darkBlack;
+		}
+	}
+
+	form {
+
+		label{
+			float: left;
+			font-family: $bodyFont;
+			color: $textGrey;
+			text-align: right;
+			width: 15%;
+		}
+
+		input {
+			padding: 5px;
+			float: right;
+			width: 80%;
+			border: 1px solid $lineGrey;
+		}
+
+		textarea {
+			height: 115px;
+			width: 80%;
+			float: right;
+			border: 1px solid $lineGrey;
+		}
+
+		input[type="submit"] {
+			background: $hoverGold;
+			color: #fff;
+			text-transform: uppercase;
+			font-family: $primaryFont;
+			border: none;
+			padding: 7px 20px;
+			margin: 20px 0;
+			margin-left: 20%;
+			float: none;
+		}
+	}
+}
 
 
 

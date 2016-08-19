@@ -297,39 +297,62 @@ function aella_featured_image_url($post) {
 	return $image_url;
 }
 
-// ====== COMMENTS FILTERING FUNCTION ===== // 
+// ====== custom comment template===== // 
 
-/**
- * Change default fields, add placeholder and change type attributes.
- *
- * @param  array $fields
- * @return array
- */
+function mytheme_comment($comment, $args, $depth) {
+	// ======  if comment is in a div tag ====== //
+    if ( 'div' === $args['style'] ) {
+        $tag       = 'div';
+        $add_below = 'comment';
 
-function wpb_move_comment_field_to_bottom_add_placeholder( $fields ) {
-$comment_field = $fields['comment'];
-// $comment_field = str_replace(
-//   '<textarea id="comment"',
-//   '<textarea placeholder="Comment" id="comment"',
-//   $fields['comment']
-// );
-unset( $fields['comment'] );
-$fields['comment'] = $comment_field; 
-
-return $fields;
+    // ====== if comment is in something other than a div tag, like a ul ====== //
+    } else {
+        $tag       = 'div';
+        $add_below = 'div-comment';
+    }
+    ?>
+    <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>"> 
+    	<?php if ( 'div' != $args['style'] ) : ?>
+        <div id="div-comment-<?php comment_ID() ?>" class="comment-body clearfix">
+    	<?php endif; ?>
+		    <span class="commentAvatar">
+		    	<?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, 60); ?>
+		    </span>
+   			 <?php if ( $comment->comment_approved == '0' ) : ?>
+        	 <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+          	<br />
+   			 <?php endif; ?>
+		    <div class="commentMain">
+				<div class="commentText">
+					<?php comment_text(); ?>
+				</div>
+				<div class="commentAuthor vcard">
+				   	<?php echo '<span>by</span>'?>
+				   	<?php printf( __( '<cite class="fn">%s</cite>' ), get_comment_author_link() ); ?> 
+				   	<?php echo '<span>on</span>'?>
+				   	<a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+				   	        <?php
+				   	        /* translators: 1: date, 2: time */
+				   	        printf( __('%1$s'), get_comment_date() ); ?>
+				   	</a>
+					<span class="reply">
+					    <?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+					</span>	
+				</div>
+		    </div>
+	<?php if ( 'div' != $args['style'] ) : ?>
+    </div>
+    <?php endif; ?>
+    <?php
 }
 
-add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom_add_placeholder' );
+// ========== custom comments form ========= //
 
-
-function format_comment($comment, $args, $depth) {
-	if ( 'div' === $args['style'] ) {
-	        $tag       = 'div';
-	        $add_below = 'comment';
-	    } else {
-	        $tag       = 'li';
-	        $add_below = 'div-comment';}
-	pre_r($comment);
-	echo get_avatar( $comment->comment_author_email, 60, "comment author avatar"); 
-	// echo '<li>'.$comment->comment_content.'</li>'.'<li>'.$comment->comment_author.'</li>'.'<li>'.$comment->comment_date.'</li>'.;
+function wpb_move_comment_field_to_bottom( $fields ) {
+	$comment_field = $fields['comment'];
+	unset( $fields['comment'] );
+	$fields['comment'] = $comment_field;
+	return $fields;
 }
+
+add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom' );

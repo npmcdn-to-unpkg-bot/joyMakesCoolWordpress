@@ -11,11 +11,8 @@ $lineGrey: #cccccc;
 // ==== anchor tags ==== //
 
 a {
-	color: #BA209B;
+	color: $darkBlack;
 	text-decoration: none;
-	&:hover {
-		color: #D424B1;
-	}
 }
 
 /* paragraphs */

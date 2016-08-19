@@ -41,10 +41,8 @@ if ( post_password_required() ) {
 
 	<div class="comment-list">	
 		<?php 
-			 wp_list_comments('type=comment&callback=format_comment');
-		 ?>
-		 <div class="reply">
-	     </div>
+		 	wp_list_comments( 'type=comment&callback=mytheme_comment' ); 
+		?>
 	</div><!-- .comment-list -->
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
@@ -61,6 +59,35 @@ if ( post_password_required() ) {
 
 	<?php endif; // have_comments() ?>
 
-	<?php comment_form(); ?>
+	<?php 
+
+     $fields =  array(
+       'author' =>
+         '<p class="comment-form-author clearfix"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
+         '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+         '" size="30"/></p>',
+       'email' =>
+         '<p class="comment-form-email clearfix"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
+         '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+         '" size="30"/></p>'
+     );
+	 $comments_args = array(
+
+	         // Change the title of send button 
+	         'label_submit' => __( 'comment', 'textdomain' ),
+	         'logged_in_as' => ' ',
+	         // Change the title of the reply section
+	         'title_reply' => 'WRITE A COMMENT',
+	         'comment_notes_before' => ' ',
+	         // Remove "Text or HTML to be displayed after the set of comment fields".
+	         'comment_notes_after' => ' ',
+	         // Redefine your own textarea (the comment body).
+	         'comment_field' => '<p class="comment-form-comment clearfix"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
+	         'fields' => $fields
+	 );
+	 comment_form( $comments_args );
+	 ?>
+
+	<?php //comment_form($args); ?>
 
 </div><!-- #comments -->
