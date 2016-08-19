@@ -1,3 +1,18 @@
+h2.comments-title {
+	color: $darkBlack;
+	font-size: 30px;
+	
+	span {
+		font-family: $secondaryFont;
+		font-style: italic;
+		color: $textGrey;
+		font-size: 13px;
+		font-weight: normal;
+		text-transform: lowercase;
+		display: block;
+	}
+}
+
 #comments .navigation {
 	padding: 0 0 18px;
 }
@@ -41,14 +56,15 @@ h3 {
 	}
 }
 
-.commentlist {
-	ol {
-		list-style: decimal;
-	}
-	.avatar {
-		position: absolute;
+ul {
+	list-style-type: none;
+}
+
+.comment-list {
+	img.avatar {
 		top: 4px;
 		left: 0;
+		border-radius: 50%;
 	}
 }
 

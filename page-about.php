@@ -6,7 +6,7 @@
       <?php // Start the loop ?>
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
         
-		<h3 class="hardCode">about</h3>
+		    <h3 class="pageTitle"><?php the_title(); ?></h3>
         <h2><?php the_title(); ?></h2>
         <div class="intro">
 	        <h3><?php the_field('page_intro') ?></h3>

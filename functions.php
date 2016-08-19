@@ -296,3 +296,40 @@ function aella_featured_image_url($post) {
 	// passing in the id to get attachment url
 	return $image_url;
 }
+
+// ====== COMMENTS FILTERING FUNCTION ===== // 
+
+/**
+ * Change default fields, add placeholder and change type attributes.
+ *
+ * @param  array $fields
+ * @return array
+ */
+
+function wpb_move_comment_field_to_bottom_add_placeholder( $fields ) {
+$comment_field = $fields['comment'];
+// $comment_field = str_replace(
+//   '<textarea id="comment"',
+//   '<textarea placeholder="Comment" id="comment"',
+//   $fields['comment']
+// );
+unset( $fields['comment'] );
+$fields['comment'] = $comment_field; 
+
+return $fields;
+}
+
+add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom_add_placeholder' );
+
+
+function format_comment($comment, $args, $depth) {
+	if ( 'div' === $args['style'] ) {
+	        $tag       = 'div';
+	        $add_below = 'comment';
+	    } else {
+	        $tag       = 'li';
+	        $add_below = 'div-comment';}
+	pre_r($comment);
+	echo get_avatar( $comment->comment_author_email, 60, "comment author avatar"); 
+	// echo '<li>'.$comment->comment_content.'</li>'.'<li>'.$comment->comment_author.'</li>'.'<li>'.$comment->comment_date.'</li>'.;
+}

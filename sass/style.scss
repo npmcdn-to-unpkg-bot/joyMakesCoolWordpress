@@ -7,6 +7,15 @@
 * Author URI: http://hackeryou.com
 */
 
+// ===== VARIABLES ==== //
+
+$textBlack: #282828;
+$lineGrey: #cccccc;
+$textGrey: #757575;
+$hoverGold: #b3885e;
+
+// ====== IMPORTING A LOT OF STUFF ====== //
+
 @import 'normalize';
 @import 'typography';
 @import 'navigation';
@@ -18,13 +27,6 @@
 Default Styling
 ====================================
 */
-
-// ===== VARIABLES ==== //
-
-$textBlack: #282828;
-$lineGrey: #cccccc;
-$textGrey: #757575;
-$hoverGold: #b3885e;
 
 // ==== GENERIC STUFF ==== //
 
@@ -142,11 +144,12 @@ header {
 		margin: 10vh auto;
 		width: 66.66%;
 		color: $textGrey;
-		font-size: 13px;
 		font-family: $bodyFont;
 
 		h3{
-			font-weight: normal;		
+			font-weight: normal;
+			font-size: 13px;
+
 		}
 	}
 
@@ -154,10 +157,11 @@ header {
 		margin: 0;
 		text-align: center;
 
-		&.hardCode {
+		&.pageTitle {
 			font-size: 16px;
 			font-style: italic;
 			font-family: $secondaryFont;
+			text-transform: lowercase;
 		}
 	}
 
@@ -178,7 +182,7 @@ header {
 			height: 1px;
 			background: $lineGrey;
 			left: calc(50% - 15px);
-			bottom: 0;
+			bottom: -15px;
 		}
 	}
 }
@@ -189,14 +193,33 @@ header {
 
 		form {
 		text-align: center;
+		display: block;
+		padding: 2.5vh 0;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 10vh;
 
 		input[type="submit"] {
 			display: none;
 		}
+
+		input[type="search"] {
+			padding: 5px;
+			width: 215px;
+			font-size: 13px;
+			font-style: italic;
+			font-family: $bodyFont;
+			background-image: url("images/searchGlass.png");
+			background-repeat: no-repeat;
+			background-position: 98% 50%;
+			border: 1px solid #ccc;
+			background-size: 6%;
+
+		}
 	} 
 }
 
-.blog .posts:nth-child(odd) {
+.blog .posts:nth-child(odd), .single-post .postImage {
 	img {
 		width: 100%;
 		height: auto;
@@ -218,13 +241,32 @@ header {
 	}
 }
 
-.blog .posts {
+.blog .posts, .single-post .singlePost {
+	position: relative;
+
+	.postsDate {
+		p {
+			text-align: center;
+			width: 20%;
+			background: #fff;
+			position: absolute;
+			padding: 5px 0;
+			top: -14px;
+			left: 40%;
+			color: $textGrey;
+			font-size: 13px;
+			font-style: italic;
+			font-family: $secondaryFont;
+			text-transform: uppercase;
+			z-index: 99;
+		}
+	}
 
 	.postsContent {
 		width: 80%;
 		margin: 0 auto;
 
-		h3 {
+		h3, h1 {
 			font-family: $primaryFont;
 			font-size: 48px;
 			font-weight: lighter;
@@ -232,6 +274,7 @@ header {
 			text-transform: uppercase;
 			color: $darkBlack;
 			letter-spacing: 2px;
+			margin: 10px 0;
 		}
 
 		p {
@@ -272,9 +315,51 @@ header {
 			}
 		}
 	}
+}
+
+// ====== single.php ======= //
+
+.singlePost {
+
+}
+.postsShare {
+	width: 80%;
+	margin: 0 auto;
+	padding: 3vh 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc; 
+
+	.postsSocial {
+		float: left;
+
+		.fb_iframe_widget, iframe#twitter-widget-0, .pinterest > span {
+			vertical-align: middle;
+			display: inline-block;
+		}		
+	}
+
+	.postsHeart {
+		float: right;
+	}
 
 }
 
+// ===== comments.php ===== //
+
+h2.comments-title {
+	color: $darkBlack;
+	font-size: 30px;
+
+	span {
+		font-family: $secondaryFont;
+		font-style: italic;
+		color: $textGrey;
+		font-size: 13px;
+		font-weight: normal;
+		text-transform: lowercase;
+		display: block;
+	}
+}
 
 
 
