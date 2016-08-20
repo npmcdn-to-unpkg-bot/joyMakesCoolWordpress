@@ -20,11 +20,13 @@
               <?php echo get_the_date('F jS, Y') ?>    
             </p>   
           </div>
-          <?php
-            if ( has_post_thumbnail() ) {
-              the_post_thumbnail('full');
-            } 
-          ?>
+          <figure class="postImage">
+            <?php
+              if ( has_post_thumbnail() ) {
+                the_post_thumbnail('full');
+              } 
+            ?>       
+          </figure>
           <div class="postsContent">
             <h3><?php the_title() ?></h3>
             <?php the_content('discover story'); ?> 

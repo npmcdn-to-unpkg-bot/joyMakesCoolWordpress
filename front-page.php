@@ -6,6 +6,7 @@
   <div class="containerEvent">
   	<div class="eventBox">
 	    <div class="contentEvent">
+	    	<!-- <a class="eventLogo active" rel="0"></a> -->
 	    </div> <!-- /,content -->
 	  	<div class="eventDetail">
 	    	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -15,7 +16,7 @@
 
 		   	<?php endwhile; ?>
 	   	</div>
-		</div>
+	</div><!-- /.eventBox -->
   </div> <!-- /.container -->
 </div> <!-- /.main -->
 
