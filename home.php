@@ -3,6 +3,9 @@
 <div class="main">
   <div class="container">
     <div class="content">
+        <div class="headerSlide">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </div>
         <h3 class="pageTitle"><?php echo get_the_title(10) ?></h3>
         <h2><?php echo get_the_title(10) ?></h2>
         <div class="intro">

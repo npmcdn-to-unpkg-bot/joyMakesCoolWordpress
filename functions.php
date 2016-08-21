@@ -49,7 +49,6 @@ We'll let WordPress add them to our templates automatically instead
 of writing our own link tags in the header. */
 
 function hackeryou_styles(){
-	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 	wp_enqueue_style(
@@ -58,6 +57,7 @@ function hackeryou_styles(){
 		null,
 		null
 	);
+	wp_enqueue_style('style', get_stylesheet_uri() );
 
 }
 
@@ -341,10 +341,6 @@ function mytheme_comment($comment, $args, $depth) {
 		    <span class="commentAvatar">
 		    	<?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, 60); ?>
 		    </span>
-   			 <?php if ( $comment->comment_approved == '0' ) : ?>
-        	 <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
-          	<br />
-   			 <?php endif; ?>
 		    <div class="commentMain">
 				<div class="commentText">
 					<?php comment_text(); ?>

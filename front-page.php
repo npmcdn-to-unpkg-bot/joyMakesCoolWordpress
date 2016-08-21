@@ -3,10 +3,12 @@
 	$background = get_field('background_image');
 ?>
 <div class="mainHome" style="background-image: url('<?php echo $background['url'] ?>')">
+	<div class="headerSlide">
+	  <i class="fa fa-angle-left" aria-hidden="true"></i>
+	</div>
   <div class="containerEvent">
   	<div class="eventBox">
 	    <div class="contentEvent">
-	    	<!-- <a class="eventLogo active" rel="0"></a> -->
 	    </div> <!-- /,content -->
 	  	<div class="eventDetail">
         	<p><?php the_field('event_date'); ?></p>
@@ -38,7 +40,7 @@
 	                $galleryImage = get_sub_field('gallery_image');
 	              ?>
 	            <div class="galleryItem">
-	              <img src="<?php echo $galleryImage['url'] ?>" alt="event image"/>
+	              <img src="<?php echo $galleryImage['url'] ?>" alt="<?php echo $galleryImage['alt']; ?>"/>
 	            </div>
 	              <?php
 	            } //end while
@@ -60,7 +62,7 @@
 	            <!-- === PINTEREST PIN IT BUTTON ===  -->
 	            <span class="pinterest">
 	              <a href="https://www.pinterest.com/pin/create/button/" data-pin-count="beside">
-	                  <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+	                  <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" alt="<?php echo $galleryImage['alt']; ?>" />
 	              </a>  
 	            </span>
 	          </div> 

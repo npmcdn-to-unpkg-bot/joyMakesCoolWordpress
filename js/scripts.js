@@ -21,4 +21,21 @@ $(function(){
 	$('#menu-item-137').on('click', function(){
 		$('ul.sub-menu').slideToggle();
 	})
+
+	$('.content h2').on('click', function(){
+		$('header').css('left', '0');
+	})
+
+	$('.headerSlide').on('click', function(){
+		$(this).addClass('hide');
+		$('.slideBack').removeClass('hide');
+		$('header').css('left', '0');
+	});
+
+	$('.slideBack').on('click', function() {
+		$(this).addClass('hide');
+		$('header').css('left', '-550px');
+		$('.headerSlide').removeClass('hide');
+	});
+
 });

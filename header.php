@@ -14,13 +14,16 @@
 <body <?php body_class(); ?>>
 
 <header>
+  <div class="slideBack hide">
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+  </div>
   <div class="container">
     <h1>
       <a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name', 'display' ); ?>" rel="home">
         <?php 
-          $logo = get_field('custom_logo', get_option('page_for_posts'));
+          $logo = get_field('custom_logo', 'options');
         ?>
-        <img src="<?php echo $logo['url'] ?>" alt="">
+        <img src="<?php echo $logo['url'] ?>" alt="<?php echo $logo['alt']; ?>">
       </a>
     </h1>
 
@@ -28,13 +31,15 @@
       'container' => true,
       'theme_location' => 'primary'
     )); ?>
-    <?php wp_nav_menu( array(
-      'container' => true,
-      'theme_location' => 'social'
-    )); ?>
-    <div class="copyright">
-      <p>&copy;Copyright Joy Liu <?php echo date('Y'); ?></p>
-    </div> 
+    <div class="footer">
+      <?php wp_nav_menu( array(
+        'container' => true,
+        'theme_location' => 'social'
+      )); ?>
+      <div class="copyright">
+        <p>&copy; Copyright Joy Liu <?php echo date('Y'); ?></p>
+      </div>     
+    </div>
   </div> <!-- /.container -->
 </header><!--/.header-->
 

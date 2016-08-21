@@ -3,6 +3,9 @@
 <div class="main">
   <div class="container">
     <div class="content">
+      <div class="headerSlide">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </div>
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
         <div class="singlePost" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -36,12 +39,11 @@
             <div class="fb-like" data-href="https://joykliu.io/" data-width="46px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
             <!-- === TWIITER TWEET BUTTON ===  -->
             <a class="twitter-share-button"
-              href="https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20event%20planner%20I%20found" data-size="medium">
-            Tweet</a>
+              href="https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20event%20planner%20I%20found" data-size="medium"></a>
             <!-- === PINTEREST PIN IT BUTTON ===  -->
             <span class="pinterest">
               <a href="https://www.pinterest.com/pin/create/button/" data-pin-count="beside">
-                  <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+                  <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" alt="pinterest logo"/>
               </a>  
             </span>
           </div> 
