@@ -7,16 +7,6 @@ ul#menu-primary-nav {
 		position: relative;
 		text-align: center;
 
-		&:after {
-			content: "";
-			width: 20px;
-			height: 1px;
-			background: #ccc;
-			position: absolute;
-			bottom: 0;
-			left: calc(50% - 10px);
-
-		}
 		
 		a {
 			color: #282828;
@@ -26,12 +16,48 @@ ul#menu-primary-nav {
 			letter-spacing: 1px;
 			transition: 0.3s;
 
+			i.fa-angle-down {
+			    position: absolute;
+			    right: 33px;
+			    top: 7px;
+			}
+
+			&:after {
+				content: "";
+				width: 20px;
+				height: 1px;
+				background: #ccc;
+				position: absolute;
+				bottom: 0;
+				left: calc(50% - 10px);
+			}
+
 			&:hover {
 				color: #b3885e;
 			}
 		}
 	}
+	ul.sub-menu {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		display: none;
+
+		li  a {
+			color: lighten($textGrey, 10);
+
+			&:after {
+				display: none
+			}
+
+			&:hover {
+				color: $hoverGold;
+			}
+		}
+
+	}
 }//.primaryNav
+
 
 ul#menu-social-nav {
 	margin: 0 auto;

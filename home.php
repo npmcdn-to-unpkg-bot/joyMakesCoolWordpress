@@ -38,5 +38,11 @@
 
   </div> <!-- /.container -->
 </div> <!-- /.main -->
+<script>
+  window.sr = ScrollReveal();
+    sr.reveal('.posts');
+    sr.reveal('.postImage');
+  sr.reveal('.postsContent');
+</script>
 
 <?php get_footer(); ?>

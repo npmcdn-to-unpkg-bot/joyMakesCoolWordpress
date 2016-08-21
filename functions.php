@@ -52,6 +52,13 @@ function hackeryou_styles(){
 	wp_enqueue_style('style', get_stylesheet_uri() );
 
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+	wp_enqueue_style(
+		'flickity', 
+		'https://npmcdn.com/flickity@2.0/dist/flickity.css',
+		null,
+		null
+	);
+
 }
 
 add_action( 'wp_enqueue_scripts', 'hackeryou_styles');
@@ -63,13 +70,29 @@ function hackeryou_scripts() {
 
 	//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
 	wp_deregister_script('jquery');
+	  wp_enqueue_script(
+	  	'jquery',
+	  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+	  	false, //dependencies
+	  	null, //version number
+	  	true //load in footer
+	  );
+
   wp_enqueue_script(
-  	'jquery',
-  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
-  	false, //dependencies
-  	null, //version number
-  	true //load in footer
+  	'flickity',
+  	'https://npmcdn.com/flickity@2.0/dist/flickity.pkgd.min.js',
+  	array('jquery'),
+  	null,
+  	true
   );
+
+  wp_enqueue_script(
+  	'scrollReveal',
+  	'https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js',
+  	false,
+  	null,
+  	true
+  	);
 
   wp_enqueue_script(
     'plugins', //handle

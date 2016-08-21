@@ -14,9 +14,7 @@
         <?php 
         	$pageImage = get_field('page_image')
          ?>
-         <figure class="aboutImg">
-          <img src="<?php echo $pageImage['url'] ?>" alt="">
-         </figure>
+        <img src="<?php echo $pageImage['url'] ?>" alt="">
         <div class="intro">
         	<?php the_content(); ?>	
         </div>

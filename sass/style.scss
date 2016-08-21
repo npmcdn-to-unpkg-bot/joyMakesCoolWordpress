@@ -17,6 +17,7 @@ $hoverGold: #b3885e;
 // ====== IMPORTING A LOT OF STUFF ====== //
 
 @import 'normalize';
+@import '_mediaQueries.scss';
 @import 'typography';
 @import 'navigation';
 @import 'comments';
@@ -28,10 +29,6 @@ Default Styling
 */
 
 // ==== GENERIC STUFF ==== //
-
-img {
-	max-width: 100%;
-}
 
 body {
 	color: #333;
@@ -54,17 +51,16 @@ body {
 
 // ==== HOME  ==== //
 
-.home header {
-	width: 50%;
-	float: left;
-	height: calc(100vh - 32px);
-	background: #fff;
+.home {
+	z-index: 99999999999;
 }
 
 .home .mainHome {
 	width: 50%;
-	height: calc(100vh - 32px);
-	float: right;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	right: 0;
 	background-size: cover;
 
 	.containerEvent {
@@ -106,6 +102,12 @@ body {
 			margin: 0;
 			font-size: 30px;
 			font-weight: lighter;
+			cursor: pointer;
+			transition: 0.45s;
+
+			&:hover {
+				color: $hoverGold;
+			}
 		}
 	}
 }
@@ -118,7 +120,7 @@ header {
 	width: 25%;
 	float: left;
 	background: #F5F5F5;
-	height: calc(100vh - 32px);
+	height: 100vh;
 	position: fixed;
 
 	img {
@@ -137,10 +139,35 @@ header {
 	}
 }
 
+.home header {
+	position: fixed;
+	width: 50%;
+	float: left;
+	height: calc(100vh - 32px);
+	background: #fff;
+}
+
 // ======== about-page.php ======= //
 
 .content {
 	padding: 18vh 0;
+
+	figure.aboutImg {
+		height: 400px;
+		overflow: hidden;
+		width: 100%;
+
+		img {
+			width: 100%;
+			transition: 0.45s;
+			
+			&:hover {
+				transform: scale(1.2);
+				opacity: 0.8;
+			}
+		}
+	}
+
 
 	.intro {
 		margin: 10vh auto;
@@ -150,6 +177,10 @@ header {
 
 		h3{
 			font-weight: normal;
+			font-size: 13px;
+		}
+
+		p {
 			font-size: 13px;
 		}
 	}//intro
@@ -550,5 +581,183 @@ div#div-comment-1 .commentMain {
 	}//form
 }//.contactForm
 
+// ========== ALL TOP LEVEL PAGES END HERE========= //
+
+// ========= HOME PAGE SLIDER ======== //
+
+.featuredEvent {
+	height: 100vh;
+	position: relative;
+	top: -300vh;
+	background: #fff;
+	transition: 1s;
+	width: 100%;
+	overflow: scroll;
+
+	.closeButton {
+		text-align: center;
+	    font-size: 30px;
+	    position: relative;
+	    top: -13px;
+
+	    i {
+	    	color: $darkBlack;
+	    	transition: 0.45s;
+
+	    	&:hover {
+	    		color: $hoverGold;
+	    	}
+	    }
+	}
+}
+
+.featuredEvent .main {
+	width: 90%;
+	float: none;
+	margin: 0 auto;
+
+	.content {
+		padding: 5vh 0;
+	}
+
+	.eventDetail {
+		width: 40%;
+		margin: 0 auto -20px;
+		background: #fff;
+		text-align: center;
+		z-index: 999;
+		padding: 5px;
+		position: relative;
+
+		p {
+			margin: 0;
+			padding: 0;
+			font-family: $secondaryFont;
+			color: $textGrey;
+			font-style: italic;
+			font-size: 12px;
+		}
+
+		h2 {
+			font-size: 30px;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.intro {
+		margin: 5vh auto;
+		p {
+			color: $textGrey;
+			font-size: 16px;
+			font-weight: lighter;
+			text-align: center;
+			font-family: $primaryFont;
+		}
+	}
+
+	.postsShare {
+		border: none;
+		margin: 0 auto;
+		.postsSocial {
+			float: none; 
+			text-align: center;
+			padding: 20px;
+		}
+	}
+}
+
+.gallery {
+	height: 60vh;
+	overflow: hidden;
+
+	.galleryItem {
+		width: 80%;
+	}
+}
+// ====== flickity config ======= //
+
+.flickity-prev-next-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background: $lineGrey;
+}
+.flickity-prev-next-button:hover {
+  background: $hoverGold;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+  fill: white;
+}
+.flickity-prev-next-button.no-svg {
+  color: white;
+}
+/* position outside */
+.flickity-prev-next-button.previous {
+  left: -40px;
+}
+.flickity-prev-next-button.next {
+  right: -40px;
+}
+
+// ======= SERVICES SUB PAGES ======= //
+
+.introImg {
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		transition: 0.45s;
+
+		&:hover {
+			transform: scale(1.2);
+			opacity: 0.8;
+		}
+	}
+}
+
+// h2.sevTitle {
+// 	font-size: 48px;
+// 	font-family: $primaryFont;
+// 	font-weight: lighter;
+// }
 
 
+.eventContent {
+	width: 100%;
+	margin: 5vh 0;
+
+	.eventDetail {
+		width: 50%;
+		float: left;
+		margin-left: 5%;
+		padding: 5vh 0;
+		p {
+			font-size: 13px;
+			font-family: $bodyFont;
+			color: $textGrey;
+		}
+	}
+	.featureImg {
+		width: 40%;
+		float: right;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.eventImage {
+		width: 60%;
+		float: left;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
