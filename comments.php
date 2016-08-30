@@ -39,9 +39,9 @@ if ( post_password_required() ) {
 	</nav><!-- #comment-nav-above -->
 	<?php endif; // Check for comment navigation. ?>
 
-	<div class="comment-list">	
-		<?php 
-		 	wp_list_comments( 'type=comment&callback=mytheme_comment' ); 
+	<div class="comment-list">
+		<?php
+		 	wp_list_comments( 'type=comment&callback=mytheme_comment' );
 		?>
 	</div><!-- .comment-list -->
 
@@ -59,7 +59,7 @@ if ( post_password_required() ) {
 
 	<?php endif; // have_comments() ?>
 
-	<?php 
+	<?php
 
      $fields =  array(
        'author' =>
@@ -72,8 +72,7 @@ if ( post_password_required() ) {
          '" size="30"/></p>'
      );
 	 $comments_args = array(
-
-	         // Change the title of send button 
+	         // Change the title of send button
 	         'label_submit' => __( 'comment', 'textdomain' ),
 	         'logged_in_as' => ' ',
 	         // Change the title of the reply section
