@@ -8,7 +8,7 @@
       </div>
       <?php // Start the loop ?>
       <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-        
+
 		    <h3 class="pageTitle"><?php the_title(); ?></h3>
         <h2><?php the_title(); ?></h2>
         <div class="introContact">
@@ -31,7 +31,7 @@
             </p>
             <p class="contact-form-phone clearfix">
               <label for="phone">Phone</label>
-              <input type="text" id="phone" name="phone" value="" size="30" required="required">
+              <input type="number" id="phone" name="phone" value="" size="30" required="required">
             </p>
             <p class="contact-form-email clearfix">
               <label for="email">Email</label>
@@ -43,7 +43,7 @@
             </p>
             <p class="contact-form-date clearfix">
               <label for="date">date</label>
-              <input type="text" id="date" name="date" value="" size="30" required="required">
+              <input type="date" id="date" name="date" value="" size="30" required="required">
             </p>
             <p class="contact-form-location clearfix">
               <label for="location">location</label>
