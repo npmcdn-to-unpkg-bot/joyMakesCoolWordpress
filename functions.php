@@ -53,7 +53,7 @@ function hackeryou_styles(){
 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 	wp_enqueue_style(
 		'flickity', 
-		'https://npmcdn.com/flickity@2.0/dist/flickity.css',
+		'https://unpkg.com/flickity@2.0/dist/flickity.css',
 		null,
 		null
 	);
@@ -80,7 +80,7 @@ function hackeryou_scripts() {
 
   wp_enqueue_script(
   	'flickity',
-  	'https://npmcdn.com/flickity@2.0/dist/flickity.pkgd.min.js',
+  	'https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js',
   	array('jquery'),
   	null,
   	true
